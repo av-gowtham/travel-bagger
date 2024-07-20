@@ -150,16 +150,6 @@ input[type="checkbox"] {
   html {
     font-size: 40.5%;
   }
-}
-
-@media (max-width: 650px) {
-  h1 {
-    font-size: 6rem;
-  }
-
-  .add-form {
-    flex-direction: column;
-  }
 
   input,
   select,
@@ -168,7 +158,22 @@ input[type="checkbox"] {
     border-radius: 10rem;
     padding: 1rem 2.3rem;
     font-weight: 700;
-    font-size: 2.1rem;
+    font-size: 16px;
+  }
+
+  li span {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 650px) {
+  h1 {
+    font-size: 6rem;
+  }
+
+  .add-form {
+    gap: 10px;
+    flex-direction: column;
   }
 }
 
@@ -187,6 +192,12 @@ input[type="checkbox"] {
 @media (max-width: 375px) {
   h1 {
     font-size: 4.7rem;
+  }
+  input,
+  select,
+  option,
+  button {
+    font-size: 2.1rem;
   }
 }
 
