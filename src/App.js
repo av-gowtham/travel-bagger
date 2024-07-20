@@ -30,7 +30,7 @@ export default function App() {
 
   function handleClearList() {
     const confirmed = window.confirm(
-      "You are you sure? You want delete all the items"
+      "You are you sure? You want delete all the items ⚠️"
     );
 
     if (confirmed) setItems([]);
