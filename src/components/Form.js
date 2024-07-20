@@ -6,13 +6,9 @@ export default function Form({ onAddItem }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(e);
 
     if (!description) return alert("Enter the item!!!");
-
     const newItem = { description, quantity, packed: false, id: Date.now() };
-    console.log(newItem);
-
     onAddItem(newItem);
 
     setDescription("");

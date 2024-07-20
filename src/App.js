@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "./components/Form";
 import PackingList from "./components/PackingList";
 import Stats from "./components/Stats";
 import Logo from "./components/Logo";
 
 export default function App() {
-  const [items, setItems] = useState([]);
+  const storedItems = JSON.parse(localStorage.getItem("localItems"));
+  const [items, setItems] = useState(storedItems || []);
+
+  useEffect(() => {
+    localStorage.setItem("localItems", JSON.stringify(items));
+  }, [items]);
 
   function handleAddItem(item) {
     setItems((items) => [...items, item]);
@@ -15,7 +20,7 @@ export default function App() {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
-  function handleToggleItme(id) {
+  function handleToggleItem(id) {
     setItems((items) =>
       items.map((item) =>
         item.id === id ? { ...item, packed: !item.packed } : item
@@ -38,7 +43,7 @@ export default function App() {
       <PackingList
         items={items}
         onDeleteItem={handleDeleteItem}
-        onToggleItem={handleToggleItme}
+        onToggleItem={handleToggleItem}
         onClearList={handleClearList}
       />
       <Stats items={items} />
